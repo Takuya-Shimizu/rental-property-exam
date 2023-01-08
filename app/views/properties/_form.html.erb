@@ -36,6 +36,15 @@
     <%= form.text_area :remarks %>
   </div>
 
+  <%= form.fields_for :nearest_stations do |g| %>
+    <%= g.label :line %>
+    <%= g.text_field :line %>
+    <%= g.label :station %>
+    <%= g.text_field :station %>
+    <%= g.label :on_foot %>
+    <%= g.text_field :on_foot %>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

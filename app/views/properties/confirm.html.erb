@@ -1,17 +1,31 @@
 <h3>以下の内容で登録する</h3>
 
 <%= form_with(model: @property, local: true) do |form| %>
-  <%= form.hidden_field :property_name %>
-  <%= form.hidden_field :rent %>
-  <%= form.hidden_field :address %>
-  <%= form.hidden_field :the_age_of_the_building %>
-  <%= form.hidden_field :remarks %>
+  <div class="property_infomation">
+    <%= form.hidden_field :property_name %>
+    <%= form.hidden_field :rent %>
+    <%= form.hidden_field :address %>
+    <%= form.hidden_field :the_age_of_the_building %>
+    <%= form.hidden_field :remarks %>
 
-  <p>物件名:<%= @property.property_name %></p>
-  <p>賃料:<%= @property.rent %></p>
-  <p>住所:<%= @property.address %></p>
-  <p>築年数:<%= @property.the_age_of_the_building %></p>
-  <p>備考:<%= @property.remarks %></p>
+    <p>物件名:<%= @property.property_name %></p>
+    <p>賃料:<%= @property.rent %></p>
+    <p>住所:<%= @property.address %></p>
+    <p>築年数:<%= @property.the_age_of_the_building %></p>
+    <p>備考:<%= @property.remarks %></p>
+  </div>
+
+  <div class="nearest_station_infomation">
+    <%= form.fields_for :nearest_stations do |g| %>
+      <%= g.hidden_field :line %>
+      <%= g.hidden_field :station %>
+      <%= g.hidden_field :on_foot %>
+      binding.irb
+      <p>路線名:<%= nearest_station.line %></p>
+      <p>駅名:<%= @property.nearest_stations.station %></p>
+      <p>徒歩分数:<%= @property..nearest_stations.on_foot %></p>
+    <% end %>
+  </div>
 
   <%= form.submit  "登録する" %>
 
