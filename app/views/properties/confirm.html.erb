@@ -20,10 +20,15 @@
       <%= g.hidden_field :line %>
       <%= g.hidden_field :station %>
       <%= g.hidden_field :on_foot %>
-      binding.irb
-      <p>路線名:<%= nearest_station.line %></p>
-      <p>駅名:<%= @property.nearest_stations.station %></p>
-      <p>徒歩分数:<%= @property..nearest_stations.on_foot %></p>
+
+      <hr>
+      <% number = 0 %>
+      <% @property.nearest_stations.each do |station|%>
+      <h4>最寄駅<%= number += 1 %></h4>
+        <p>路線名:<%= station.line %></p>
+        <p>駅名:<%= station.station %></p>
+        <p>徒歩分数:<%= station.on_foot %></p>
+      <% end %>
     <% end %>
   </div>
 

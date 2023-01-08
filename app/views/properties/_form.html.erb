@@ -36,7 +36,10 @@
     <%= form.text_area :remarks %>
   </div>
 
+  <hr>
+  <% number = 0 %>
   <%= form.fields_for :nearest_stations do |g| %>
+  <h2>最寄り駅<%= number += 1 %></h2>
     <%= g.label :line %>
     <%= g.text_field :line %>
     <%= g.label :station %>
