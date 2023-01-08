@@ -12,40 +12,40 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :property_name %>
-    <%= form.text_field :property_name %>
+    <p><%= form.label :物件名 %></p>
+    <p><%= form.text_field :property_name %></p>
   </div>
 
   <div class="field">
-    <%= form.label :rent %>
-    <%= form.text_field :rent %>
+    <p><%= form.label :賃料 %></p>
+    <p><%= form.text_field :rent %>円</p>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <p><%= form.label :住所 %></p>
+    <p><%= form.text_field :address %></p>
   </div>
 
   <div class="field">
-    <%= form.label :the_age_of_the_building %>
-    <%= form.text_field :the_age_of_the_building %>
+    <p><%= form.label :築年数 %></p>
+    <p><%= form.text_field :the_age_of_the_building %>年</p>
   </div>
 
   <div class="field">
-    <%= form.label :remarks %>
-    <%= form.text_area :remarks %>
+    <p><%= form.label :備考 %></p>
+    <p><%= form.text_area :remarks %></p>
   </div>
 
   <hr>
   <% number = 0 %>
   <%= form.fields_for :nearest_stations do |g| %>
   <h2>最寄り駅<%= number += 1 %></h2>
-    <%= g.label :line %>
-    <%= g.text_field :line %>
-    <%= g.label :station %>
-    <%= g.text_field :station %>
-    <%= g.label :on_foot %>
-    <%= g.text_field :on_foot %>
+    <p><%= g.label :路線名 %></p>
+    <p><%= g.text_field :line %></p>
+    <p><%= g.label :駅名 %></p>
+    <p><%= g.text_field :station %></p>
+    <p><%= g.label :徒歩分数 %></p>
+    <p><%= g.text_field :on_foot %>分</p>
   <% end %>
 
   <div class="actions">
