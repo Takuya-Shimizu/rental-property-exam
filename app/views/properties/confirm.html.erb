@@ -1,0 +1,37 @@
+<h3>以下の内容で登録する</h3>
+
+<%= form_with(model: @property, local: true) do |form| %>
+  <div class="property_infomation">
+    <%= form.hidden_field :property_name %>
+    <%= form.hidden_field :rent %>
+    <%= form.hidden_field :address %>
+    <%= form.hidden_field :the_age_of_the_building %>
+    <%= form.hidden_field :remarks %>
+
+    <p>物件名:<%= @property.property_name %></p>
+    <p>賃料:<%= @property.rent %></p>
+    <p>住所:<%= @property.address %></p>
+    <p>築年数:<%= @property.the_age_of_the_building %></p>
+    <p>備考:<%= @property.remarks %></p>
+  </div>
+
+  <div class="nearest_station_infomation">
+    <%= form.fields_for :nearest_stations do |g| %>
+      <%= g.hidden_field :line %>
+      <%= g.hidden_field :station %>
+      <%= g.hidden_field :on_foot %>
+    <% end %>
+    <hr>
+    <% number = 0 %>
+    <% @property.nearest_stations.each do |station|%>
+      <h4>最寄駅<%= number += 1 %></h4>
+      <p>路線名:<%= station.line %></p>
+      <p>駅名:<%= station.station %></p>
+      <p>徒歩分数:<%= station.on_foot %></p>
+    <% end %>
+  </div>
+
+  <%= form.submit  "登録する" %>
+
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>
